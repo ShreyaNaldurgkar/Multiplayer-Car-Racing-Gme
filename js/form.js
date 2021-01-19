@@ -11,11 +11,16 @@ class Form{
      this.input.position(600,290);
      this.button.position(630,330);
      this.button.mousePressed(()=>{
-         var name=this.input.value();
-         console.log(name);
+         
+         player.name=this.input.value();
+         //console.log(name);
+         playerCount = playerCount + 1;
+         player.index = playerCount;
+         player.updatePlayerCount(playerCount);
+         player.updateInfo();
          this.input.hide();
          this.button.hide();
-         this.message.html("Hello "+ name+" waiting for other players to join");
+         this.message.html("Hello "+ player.name+" waiting for other players to join");
          this.message.position(440,330);
      })
  }
