@@ -24,4 +24,9 @@ class Form{
          this.message.position(440,330);
      })
  }
+
+ hide(){
+     this.message.hide();
+     this.title.hide();
+ }
 }

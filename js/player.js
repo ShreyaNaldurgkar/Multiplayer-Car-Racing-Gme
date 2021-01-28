@@ -22,4 +22,14 @@ class Player {
             distance: this.distance
         });
     }
+
+     
+    static getAllPlayers() {
+    
+        var playersRef = database.ref("players")
+        playersRef.on("value", (data) => { allPlayers = data.val() })
+
+
+    }
+
 }
