@@ -32,9 +32,17 @@ class Game {
 
         }
         car1 = createSprite(100, 200, 50, 50);
+        car1.addImage(car1img);
+
         car2 = createSprite(300, 200, 50, 50);
+        car2.addImage(car2img);
+
         car3 = createSprite(500, 200, 50, 50);
+        car3.addImage(car3img);
+
         car4 = createSprite(700, 200, 50, 50);
+        car4.addImage(car4img);
+
         cars = [car1, car2, car3, car4]
 
 
@@ -44,13 +52,16 @@ class Game {
         form.hide();
         Player.getAllPlayers();
         console.log(allPlayers)
+
+        image(trackimg,0,-displayHeight*4,displayWidth, displayHeight*5)
+
         if (allPlayers !== undefined) {
             var index = 0;
             var x = 200;
             var y;
             for (var plr in allPlayers) {
                 index = index + 1;
-                x = x + 200
+                x = x + 220
                 y = displayHeight - allPlayers[plr].distance
                 cars[index - 1].x = x;
                 cars[index - 1].y = y;
@@ -58,6 +69,9 @@ class Game {
                     camera.position.x = displayWidth / 2;
                     camera.position.y = cars[index - 1].y
                     cars[index - 1].shapeColor = "red"
+                    stroke ("green");
+                    strokeWeight(4);
+                    ellipse(x,y,60,60);
 
                 }
 
