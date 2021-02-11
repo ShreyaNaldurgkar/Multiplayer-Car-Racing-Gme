@@ -51,6 +51,7 @@ class Game {
         console.log("game has started");
         form.hide();
         Player.getAllPlayers();
+        player.getCarsAtEnd();
         console.log(allPlayers)
 
         image(trackimg,0,-displayHeight*4,displayWidth, displayHeight*5)
@@ -87,9 +88,18 @@ class Game {
             player.updateInfo();
 
         }
+
+        if(player.distance>=4260){
+            gameState=2
+            player.rank = player.rank+1;
+            Player.updateCarsAtEnd(player.rank)
+
+        }
         drawSprites();
     }
     end() {
+        console.log("game ended")
+        console.log(player.rank);
 
     }
 }
